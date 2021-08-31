@@ -1,0 +1,62 @@
+{
+  "Reguistro": {
+    "GetFieldBy": "XPath",
+    "ValueToFind": "//body[1]/center[1]/div[1]/a[1]"
+  },
+  "Cancelar": {
+    "GetFieldBy": "XPath",
+    "ValueToFind": "//body[1]/center[1]/div[1]/form[1]/input[3]"
+  },
+  "Username": {
+    "GetFieldBy": "id",
+    "ValueToFind": "uid"
+  },
+  "Password": {
+    "GetFieldBy": "id",
+    "ValueToFind": "pid"
+  },
+  "RepeatPassword": {
+    "GetFieldBy": "id",
+    "ValueToFind": "pid2"
+  },
+  "Gender": {
+    "GetFieldBy": "name",
+    "ValueToFind": "gender"
+  },
+  "Address": {
+    "GetFieldBy": "id",
+    "ValueToFind": "taid"
+  },
+  "Billing_Address": {
+    "GetFieldBy": "id",
+    "ValueToFind": "btaid"
+  },
+  "State": {
+    "GetFieldBy": "name",
+    "ValueToFind": "state"
+  },
+  "Terms&Conditions": {
+    "GetFieldBy": "name",
+    "ValueToFind": "agree"
+  },
+  "Register": {
+    "GetFieldBy": "XPath",
+    "ValueToFind": "//body[1]/center[1]/div[1]/form[1]/input[2]"
+  },
+  "Backlogin": {
+    "GetFieldBy": "XPath",
+    "ValueToFind": "//body[1]/center[1]/div[1]/a[1]"
+  },
+  "User": {
+    "GetFieldBy": "name",
+    "ValueToFind": "user"
+  },
+  "Pass": {
+    "GetFieldBy": "name",
+    "ValueToFind": "password"
+  },
+  "Login": {
+    "GetFieldBy": "XPath",
+    "ValueToFind": "//body[1]/center[1]/div[1]/form[1]/table[1]/tbody[1]/tr[3]/td[2]/input[1]"
+  }
+}

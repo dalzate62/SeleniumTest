@@ -76,6 +76,7 @@ public class StepDefinitions {
     @And("^I Set (.*) With Test (.*)")
     public void iSet(String element, String text) throws Exception{
         By SeleniumElement = SeleniumFunctions.getCompleteElement(element);
+        driver.findElement(SeleniumElement).clear();
         driver.findElement(SeleniumElement).sendKeys(text);
         log.info("se coloco: "+ text + "del elemento:" + element);
     }
@@ -224,5 +225,10 @@ public class StepDefinitions {
 
         boolean isDisplayed = functions.isElementDisplayed(element);
         Assert.assertFalse("El elemento NO esta presente" + element,isDisplayed);
+    }
+
+    @Then("^Subir Archivo (.*)")
+    public void fileUpload(String element)throws Exception{
+        functions.fileUpload(element);
     }
 }

@@ -237,12 +237,15 @@ public class SeleniumFunctions {
             Alert alert = wait.until(ExpectedConditions.alertIsPresent());
             System.out.println(alert.getText());
             /** Colocar un switch si se encuentra una alerta diferente**/
-            if(want == "accept"){
-                alert.accept();
-                System.out.println("acepto la alerta");
-            }else{
-                alert.dismiss();
-                System.out.println("dismiss la alerta");
+            switch (want){
+                case "accept":
+                    alert.accept();
+                    System.out.println("acepto la alerta");
+                    break;
+                case "dismiss":
+                    alert.dismiss();
+                    System.out.println("acepto la alerta");
+                    break;
             }
             log.info("The alert was accepted successfully");
         }catch (Throwable e){
@@ -311,5 +314,13 @@ public class SeleniumFunctions {
         log.info(String.format(" el elemento visible es: ", element, isDisplayed));
         System.out.println(String.format(" el elemento visible es: %s", element, isDisplayed));
         return isDisplayed;
+    }
+
+    public void fileUpload(String element) throws Exception{
+        String attribute = readProperties("FilesUploads");
+        By SeleniumElement = SeleniumFunctions.getCompleteElement(element);
+        WebElement fileInput = driver.findElement(SeleniumElement);
+        fileInput.sendKeys(attribute);
+        log.info(String.format("se sube el archivo Correctamente"));
     }
 }
