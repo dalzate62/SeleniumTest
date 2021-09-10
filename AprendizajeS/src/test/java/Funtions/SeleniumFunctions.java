@@ -9,8 +9,12 @@ import org.json.simple.parser.JSONParser;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 import javax.swing.text.Element;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
@@ -38,6 +42,7 @@ public class SeleniumFunctions {
     public static String ValueToFind = "";
     public static int EXPLICIT_TIMEOUT = 15;
     public static String ElementText = "";
+    public static String PathStore ="";
     public static boolean isDisplayed = Boolean.parseBoolean(null);
 
     public static Object readJson() throws Exception{
@@ -322,5 +327,14 @@ public class SeleniumFunctions {
         WebElement fileInput = driver.findElement(SeleniumElement);
         fileInput.sendKeys(attribute);
         log.info(String.format("se sube el archivo Correctamente"));
+    }
+
+    public void searchImage() throws FindFailed {
+        Screen screen = new Screen();
+        PathStore = prop.getProperty("PathStoreImage");
+        Pattern reguistrar = new Pattern(PathStore + "/reguistrar.png");
+        screen.wait(reguistrar,10);
+        screen.click(reguistrar);
+        log.info("Entro Correctamente al Reguistro");
     }
 }

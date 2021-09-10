@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.sikuli.script.FindFailed;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -201,6 +202,11 @@ public class StepDefinitions {
         functions.attachScreenShot(TestCaptura);
     }
 
+    @And("^I click with Sikuli")
+    public void searchImage() throws FindFailed {
+        functions.searchImage();
+    }
+
     @Then("^Assert if (.*) contains text (.*)")
     public void assertIfContainsText(String element, String text)throws Exception {
         functions.checkPartialTextElementPresent(element, text);
@@ -231,4 +237,6 @@ public class StepDefinitions {
     public void fileUpload(String element)throws Exception{
         functions.fileUpload(element);
     }
+
+
 }

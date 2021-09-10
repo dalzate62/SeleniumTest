@@ -104,3 +104,8 @@ Feature: Examples
     #Then Check if email error is NOT contains text Covid
     Then Assert if email error is Displayed
 
+  @Sikuly
+  Scenario: Fisrt use Sikuly with Selenium
+    Given I Got to Site http://sahitest.com/demo/training/login.htm
+    And I click with Sikuli
+

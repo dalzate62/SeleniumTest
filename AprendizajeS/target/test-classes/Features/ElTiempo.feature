@@ -1,6 +1,5 @@
-Feature: Examples
+Feature: Entrevista Practica
   optional description of the feature
-
 
   @Reguistro
   Scenario: Register in Site
@@ -25,3 +24,4 @@ Feature: Examples
     And I Set User With Test dalzate
     And I Set Pass With Test dalzate
     And I Do Click In Element Login
+    And I take screenshoot: inicioLogin
