@@ -82,6 +82,7 @@ Feature: Examples
     Given I Got to Site https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert
     Then I Load The DOM Information azlogin.json
     And I switch to Frame: Frame1
+    And I switch to parent frame
     And I Do Click In Element Reguistro
     Then I accept alert
     And I wait 5 seconds
@@ -99,7 +100,7 @@ Feature: Examples
     Then Check if email error Not is Displayed
     And I Set Email With Test dasdas
     And I Do Click In Element Contrasena
-    #Then Assert if email error contains text ejemplo@email.com
+    Then Assert if email error contains text ejemplo@email.com
     #Then Assert if email error is equal to Este correo electrónico no es válido. Asegúrate de que tenga un formato como este: ejemplo@email.com
     #Then Check if email error is NOT contains text Covid
     Then Assert if email error is Displayed

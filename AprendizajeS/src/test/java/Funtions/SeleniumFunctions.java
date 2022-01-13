@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.*;
 import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
@@ -17,10 +18,7 @@ import javax.swing.text.Element;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class SeleniumFunctions {
 
@@ -337,4 +335,29 @@ public class SeleniumFunctions {
         screen.click(reguistrar);
         log.info("Entro Correctamente al Reguistro");
     }
+
+    public void addAttributeSelect(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("var e = document.getElementsByTagName('select');" +
+                "console.log(e);" +
+                "for (var i = 0; i < e.length; i++) {" +
+                "var n = i + 1;" +
+                "console.log(e[i]);" +
+                "e[i].setAttribute('id', n);" +
+                "}");
+        log.info("se realizo la adicion");
+    }
+
+    public void selectvsGroupMasive(String select, String element) throws Exception {
+        By SeleniumElement = SeleniumFunctions.getCompleteElement(select);
+        List<WebElement> selected = driver.findElements(SeleniumElement);
+        for (int i = 0; i < selected.size(); i++) {
+            System.out.println("numero de elementos " + selected.get(i).getAttribute("id"));
+            String nombre_id = selected.get(i).getAttribute("id");
+            Select opt = new Select(driver.findElement(By.id(nombre_id)));
+            driver.findElements(By.tagName("optgroup"));
+            opt.selectByVisibleText(element);
+        }
+    }
+
 }
