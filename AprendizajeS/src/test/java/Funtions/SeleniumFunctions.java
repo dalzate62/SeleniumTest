@@ -20,6 +20,8 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static org.apache.commons.io.FilenameUtils.removeExtension;
+
 public class SeleniumFunctions {
 
     WebDriver driver;
@@ -327,12 +329,24 @@ public class SeleniumFunctions {
         log.info(String.format("se sube el archivo Correctamente"));
     }
 
-    public void searchImage() throws FindFailed {
+    public void searchImage(String element) throws FindFailed, IOException {
         Screen screen = new Screen();
-        PathStore = prop.getProperty("PathStoreImage");
-        Pattern reguistrar = new Pattern(PathStore + "/reguistrar.png");
-        screen.wait(reguistrar,10);
-        screen.click(reguistrar);
+        File Folder = new File(readProperties("PathStorage"));
+        File[] files = Folder.listFiles();
+        List<String> SikulyImage = new ArrayList<String>();
+        for (int i = 0; i < files.length; i++){
+            SikulyImage.add(removeExtension(files[i].getName()));
+        }
+        for (String i: SikulyImage) {
+            System.out.println(i);
+            if(i.contains(element)){
+                Pattern Image = new Pattern(Folder + "/" + i);
+                System.out.println(Image);
+                screen.wait(Image,10);
+                screen.click(Image);
+                break;
+            }
+        }
         log.info("Entro Correctamente al Reguistro");
     }
 
@@ -359,5 +373,7 @@ public class SeleniumFunctions {
             opt.selectByVisibleText(element);
         }
     }
+
+
 
 }

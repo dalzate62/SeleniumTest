@@ -202,9 +202,9 @@ public class StepDefinitions {
         functions.attachScreenShot(TestCaptura);
     }
 
-    @And("^I click with Sikuli")
-    public void searchImage() throws FindFailed {
-        functions.searchImage();
+    @And("^I click with Sikuli (.*)")
+    public void searchImage(String element) throws FindFailed, IOException {
+        functions.searchImage(element);
     }
 
     @Then("^Assert if (.*) contains text (.*)")
